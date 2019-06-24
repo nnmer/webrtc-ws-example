@@ -106,8 +106,7 @@ function connect() {
   connection = new WebSocket(serverUrl, "json");
 
   connection.onopen = function(evt) {
-    document.getElementById("text").disabled = false;
-    document.getElementById("send").disabled = false;
+
   };
 
   connection.onerror = function(evt) {
