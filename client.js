@@ -115,7 +115,6 @@ function connect() {
   }
 
   connection.onmessage = function(evt) {
-    var chatFrameDocument = document.getElementById("chatbox").contentDocument;
     var text = "";
     var msg = JSON.parse(evt.data);
     log("Message received: ");
@@ -129,18 +128,8 @@ function connect() {
         setUsername();
         break;
 
-      case "username":
-        text = "<b>User <em>" + msg.name + "</em> signed in at " + timeStr + "</b><br>";
-        break;
-
-      case "message":
-        text = "(" + timeStr + ") <b>" + msg.name + "</b>: " + msg.text + "<br>";
-        break;
-
       case "rejectusername":
         myUsername = msg.name;
-        text = "<b>Your username has been set to <em>" + myUsername +
-          "</em> because the name you chose is in use.</b><br>";
         break;
 
       case "userlist":      // Received an updated user list
@@ -173,39 +162,7 @@ function connect() {
         log_error("Unknown message received:");
         log_error(msg);
     }
-
-    // If there's text to insert into the chat buffer, do so now, then
-    // scroll the chat panel so that the new text is visible.
-
-    if (text.length) {
-      chatFrameDocument.write(text);
-      document.getElementById("chatbox").contentWindow.scrollByPages(1);
-    }
   };
-}
-
-// Handles a click on the Send button (or pressing return/enter) by
-// building a "message" object and sending it to the server.
-function handleSendButton() {
-  var msg = {
-    text: document.getElementById("text").value,
-    type: "message",
-    id: clientID,
-    date: Date.now()
-  };
-  sendToServer(msg);
-  document.getElementById("text").value = "";
-}
-
-// Handler for keyboard events. This is used to intercept the return and
-// enter keys so that we can call send() to transmit the entered text
-// to the server.
-function handleKey(evt) {
-  if (evt.keyCode === 13 || evt.keyCode === 14) {
-    if (!document.getElementById("send").disabled) {
-      handleSendButton();
-    }
-  }
 }
 
 // Create the RTCPeerConnection which knows how to talk to our
@@ -223,8 +180,8 @@ function createPeerConnection() {
   myPeerConnection = new RTCPeerConnection({
     iceServers: [     // Information about ICE servers - Use your own!
       {
-  url: 'stun:stun.l.google.com:19302'
-},
+        url: 'stun:stun.l.google.com:19302'
+      },
       {
         url: 'turn:numb.viagenie.ca',
         credential: 'muazkh',

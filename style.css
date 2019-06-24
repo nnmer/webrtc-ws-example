@@ -18,7 +18,7 @@
 #userlistbox {
   border: 1px solid black;
   width:100%;
-  height:740px;
+  height:60px;
   margin-top:0px;
   margin-right:10px;
   padding:1px;
@@ -34,11 +34,6 @@
   padding: 1px;
 }
 
-/* The <iframe> containing the chat scrollback */
-#chatbox {
-  width:100%;
-  height:740px;
-}
 
 /* The video panel */
 .camera-box {
@@ -56,7 +51,6 @@
   box-shadow: 2px 2px 3px black;
   width: 480px;
   height: 360px;
-  left:10px;
   position:absolute;
 }
 
@@ -66,7 +60,7 @@
   height: 90px;
   position: absolute;
   top: 10px;
-  left: 20px;
+  left: 10px;
   border: 1px solid rgba(255, 255, 255, 0.75);
   box-shadow: 0 0 4px black;
 }
@@ -144,15 +138,6 @@
   -ms-flex-item-align: auto;
   align-self: auto;
 }
-
-
-#empty-container {
- -webkit-box-flex: 0;
- -webkit-flex: 0 0 auto;
- -ms-flex: 0 0 auto;
- flex: 0 0 auto; width: 120px;
-}
-
 
 #control-row {
  -webkit-box-flex: 0;

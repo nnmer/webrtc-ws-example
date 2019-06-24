@@ -222,12 +222,6 @@ wsServer.on('request', function(request) {
       // by that name.
 
       switch(msg.type) {
-        // Public, textual message
-        case "message":
-          msg.name = connect.username;
-          msg.text = msg.text.replace(/(<([^>]+)>)/ig, "");
-          break;
-
         // Username change
         case "username":
           var nameChanged = false;

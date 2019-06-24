@@ -32,13 +32,9 @@
   <input type="button" name="login" value="Log in" onclick="connect()"></p>
 
   <div id="container" class="flexChild columnParent">
-    <div class="flexChild rowParent">
       <div class="flexChild rowParent">
         <div class="flexChild" id="userlist-container">
           <ul id="userlistbox"></ul>
-        </div>
-        <div class="flexChild" id="chat-container">
-          <iframe id="chatbox"></iframe>
         </div>
       </div>
 
@@ -51,18 +47,6 @@
           </button>
         </div>
       </div>
-    </div>
-
-    <div class="flexChild rowParent" id="control-row">
-      <div class="flexChild" id="empty-container"></div>
-      <div class="flexChild" id="chat-controls-container">
-        Chat: <input id="text" type="text" name="text" size="80" maxlength="256"
-          placeholder="Chat with us!" autocomplete="off" onkeyup="handleKey(event)"
-          disabled>
-        <input type="button" id="send" name="send" value="Send"
-          onclick="handleSendButton()" disabled>
-      </div>
-    </div>
   </div>
 </body>
 </html>
