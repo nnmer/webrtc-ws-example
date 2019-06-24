@@ -14,7 +14,7 @@ Original example at https://github.com/mdn/samples-server/tree/master/s/webrtc-f
 - Create a Linux VM
 - Install NodeJs and npm
 ```
-apt install nodejs npm
+apt install nodejs npm openssl
 ```
 - create a folder /app
 ```
