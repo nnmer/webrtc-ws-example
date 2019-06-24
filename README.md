@@ -23,7 +23,7 @@ mkdir -p /app
 - upload content into the folder
 - run the server
 ```
-sh /app/startup.sh
+cd /app; sh startup.sh
 ```
 - open web browser at https://<YOUR_SERVER_IP>
 
